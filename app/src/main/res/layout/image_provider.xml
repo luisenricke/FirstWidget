@@ -1,0 +1,120 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center" >
+
+    <ImageView
+        android:id="@+id/imgUp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:visibility="gone"
+
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toy Story"
+        android:visibility="gone"
+        android:id="@+id/txtUp"
+        android:layout_below="@+id/imgUp"
+        android:layout_alignLeft="@+id/imgUp"
+        android:layout_alignStart="@+id/imgUp" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/imgDown"
+        android:visibility="gone"
+        android:layout_below="@+id/txtRight"
+        android:layout_alignLeft="@+id/txtUp"
+        android:layout_alignStart="@+id/txtUp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Beauty and the beast"
+        android:id="@+id/txtDown"
+        android:visibility="gone"
+        android:layout_below="@+id/imgDown"
+        android:layout_toLeftOf="@+id/imgRight"
+        android:layout_toStartOf="@+id/imgRight" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/imgRight"
+        android:visibility="gone"
+        android:layout_alignBottom="@+id/imgBtn"
+        android:layout_toRightOf="@+id/imgBtn"
+        android:layout_toEndOf="@+id/imgBtn" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wonder Woman"
+        android:id="@+id/txtRight"
+        android:layout_below="@+id/imgRight"
+        android:visibility="gone"
+        android:layout_toRightOf="@+id/imgBtn"
+        android:layout_alignRight="@+id/imgRight"
+        android:layout_alignEnd="@+id/imgRight" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/imgLeft"
+        android:visibility="gone"
+        android:layout_alignTop="@+id/imgRight"
+        android:layout_toLeftOf="@+id/imgBtn"
+        android:layout_toStartOf="@+id/imgBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardians of the galaxy"
+        android:id="@+id/txtLeft"
+        android:visibility="gone"
+        android:layout_below="@+id/imgLeft"
+        android:layout_alignLeft="@+id/imgLeft"
+        android:layout_alignStart="@+id/imgLeft"
+        android:layout_above="@+id/txtDown"
+        android:layout_toLeftOf="@+id/imgDown"
+        android:layout_toStartOf="@+id/imgDown" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imgBtn"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
+        android:visibility="gone"
+        android:layout_marginRight="30dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/hide"
+        android:layout_below="@+id/imgUp"
+        android:contentDescription="Show"/>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imgBtn2"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/show"
+        android:layout_below="@+id/imgUp"
+        android:contentDescription="Hide" />
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
