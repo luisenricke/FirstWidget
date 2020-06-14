@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FirstWidget</string>
+    <string name="appwidget_text">L7u</string>
+    <string name="add_widget">Add widget</string>
 </resources>
