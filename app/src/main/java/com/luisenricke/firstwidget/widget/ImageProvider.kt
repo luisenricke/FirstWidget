@@ -1,4 +1,4 @@
-package com.luisenricke.firstwidget
+package com.luisenricke.firstwidget.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -9,6 +9,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.View
 import android.widget.RemoteViews
+import com.luisenricke.firstwidget.R
 
 /**
  * Implementation of App Widget functionality.
@@ -26,7 +27,9 @@ class ImageProvider : AppWidgetProvider() {
         }
 
         fun getRemoteView(context: Context): RemoteViews {
-            return RemoteViews(context.packageName, R.layout.image_provider)
+            return RemoteViews(context.packageName,
+                R.layout.image_provider
+            )
         }
     }
 
@@ -37,7 +40,11 @@ class ImageProvider : AppWidgetProvider() {
     ) {
         // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget2(context, appWidgetManager, appWidgetId)
+            updateAppWidget2(
+                context,
+                appWidgetManager,
+                appWidgetId
+            )
         }
     }
 
@@ -51,7 +58,10 @@ class ImageProvider : AppWidgetProvider() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
-        remoteViews = getRemoteView(context!!)
+        remoteViews =
+            getRemoteView(
+                context!!
+            )
         if(onClick.equals(intent?.action)){
             hide(R.id.imgUp)
             hide(R.id.imgDown)
@@ -65,7 +75,10 @@ class ImageProvider : AppWidgetProvider() {
 
             hide(R.id.imgBtn)
             show(R.id.imgBtn2)
-            updateWidgetNow(context, ImageProvider.remoteViews)
+            updateWidgetNow(
+                context,
+                remoteViews
+            )
         }
 
         if(onClick2.equals(intent?.action)){
@@ -81,7 +94,10 @@ class ImageProvider : AppWidgetProvider() {
 
             show(R.id.imgBtn)
             hide(R.id.imgBtn2)
-            updateWidgetNow(context, ImageProvider.remoteViews)
+            updateWidgetNow(
+                context,
+                remoteViews
+            )
         }
 
     }
@@ -107,26 +123,51 @@ internal fun updateAppWidget2(
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int
 ) {
-    ImageProvider.remoteViews = ImageProvider.getRemoteView(context)
+    ImageProvider.remoteViews =
+        ImageProvider.getRemoteView(
+            context
+        )
     ImageProvider.remoteViews.setImageViewBitmap(
         R.id.imgUp,
-        BitmapFactory.decodeResource(context.resources, R.drawable.up)
+        BitmapFactory.decodeResource(context.resources,
+            R.drawable.up
+        )
     )
     ImageProvider.remoteViews.setImageViewBitmap(
         R.id.imgDown,
-        BitmapFactory.decodeResource(context.resources, R.drawable.down)
+        BitmapFactory.decodeResource(context.resources,
+            R.drawable.down
+        )
     )
     ImageProvider.remoteViews.setImageViewBitmap(
         R.id.imgRight,
-        BitmapFactory.decodeResource(context.resources, R.drawable.right)
+        BitmapFactory.decodeResource(context.resources,
+            R.drawable.right
+        )
     )
     ImageProvider.remoteViews.setImageViewBitmap(
         R.id.imgLeft,
-        BitmapFactory.decodeResource(context.resources, R.drawable.left)
+        BitmapFactory.decodeResource(context.resources,
+            R.drawable.left
+        )
     )
 
-    ImageProvider.remoteViews.setOnClickPendingIntent(R.id.imgBtn, getPEndingIntent(context,ImageProvider.onClick))
-    ImageProvider.remoteViews.setOnClickPendingIntent(R.id.imgBtn2, getPEndingIntent(context,ImageProvider.onClick2))
+    ImageProvider.remoteViews.setOnClickPendingIntent(
+        R.id.imgBtn,
+        getPEndingIntent(
+            context,
+            ImageProvider.onClick
+        )
+    )
+    ImageProvider.remoteViews.setOnClickPendingIntent(
+        R.id.imgBtn2,
+        getPEndingIntent(
+            context,
+            ImageProvider.onClick2
+        )
+    )
 
-    appWidgetManager.updateAppWidget(appWidgetId, ImageProvider.remoteViews)
+    appWidgetManager.updateAppWidget(appWidgetId,
+        ImageProvider.remoteViews
+    )
 }

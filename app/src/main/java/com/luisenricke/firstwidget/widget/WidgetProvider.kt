@@ -1,4 +1,4 @@
-package com.luisenricke.firstwidget
+package com.luisenricke.firstwidget.widget
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider

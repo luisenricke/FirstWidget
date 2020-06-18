@@ -3,13 +3,42 @@
     package="com.luisenricke.firstwidget">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".ImageProvider"
+        <activity android:name=".activity.WidgetDialog"
+            android:noHistory="true"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+
+        <receiver android:name=".widget.ChronometerProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/chronometer_provider_info" />
+        </receiver>
+        <!-- region activities -->
+        <activity android:name=".activity.MainActivity2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MainActivity" />
+
+        <!-- endregion -->
+        <!-- region widgets -->
+        <receiver
+            android:name=".widget.ImageProvider"
             android:label="Image">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -19,7 +48,7 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/image_provider_info" />
         </receiver>
-        <receiver android:name=".ProgressBarProvider">
+        <receiver android:name=".widget.ProgressBarProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -28,17 +57,8 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/progress_bar_provider_info" />
         </receiver>
-
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
         <receiver
-            android:name=".WidgetProvider"
+            android:name=".widget.WidgetProvider"
             android:label="Hello">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

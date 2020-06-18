@@ -1,9 +1,10 @@
-package com.luisenricke.firstwidget
+package com.luisenricke.firstwidget.widget
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.widget.RemoteViews
+import com.luisenricke.firstwidget.R
 
 /**
  * Implementation of App Widget functionality.
@@ -16,7 +17,11 @@ class ProgressBarProvider : AppWidgetProvider() {
     ) {
         // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId)
+            updateAppWidget(
+                context,
+                appWidgetManager,
+                appWidgetId
+            )
         }
     }
 
@@ -39,7 +44,9 @@ internal fun updateAppWidget(
 
     val widgetText = context.getString(R.string.appwidget_text)
     // Construct the RemoteViews object
-    val views = RemoteViews(context.packageName, R.layout.progress_bar_provider)
+    val views = RemoteViews(context.packageName,
+        R.layout.progress_bar_provider
+    )
 
 
     views.setProgressBar(R.id.progress_bar, 100, countProgresBar, true)
