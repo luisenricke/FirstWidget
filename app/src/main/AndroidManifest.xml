@@ -10,11 +10,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.WidgetDialog"
-            android:noHistory="true"
-            android:excludeFromRecents="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name=".widget.CollectionProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
 
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/collection_provider_info" />
+        </receiver>
+
+        <activity android:name=".activity.ViewFlipperActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.WidgetDialog"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <receiver android:name=".widget.ChronometerProvider">
             <intent-filter>
@@ -24,8 +41,7 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/chronometer_provider_info" />
-        </receiver>
-        <!-- region activities -->
+        </receiver> <!-- region activities -->
         <activity android:name=".activity.MainActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,9 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
-
-        <!-- endregion -->
+        <activity android:name=".activity.MainActivity" /> <!-- endregion -->
         <!-- region widgets -->
         <receiver
             android:name=".widget.ImageProvider"
@@ -68,6 +82,9 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widgetinfo" />
         </receiver>
+
+        <service android:name=".widget.WidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
     </application>
 
 </manifest>

@@ -50,4 +50,6 @@ dependencies {
     kapt DatabaseLib.compilerRoom
     implementation DatabaseLib.runtimeRoom
 
+    implementation ToolLib.glide
+
 }
